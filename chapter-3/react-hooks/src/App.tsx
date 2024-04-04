@@ -1,8 +1,13 @@
-import Counter from "./Counter";
+import './App.css';
+import Counter from './Counter';
+import Issues from './IssuesClass';
 
 function App() {
   return (
-    <Counter />
+    <div className="App">
+      <Counter />
+      <Issues />
+    </div>
   );
 }
 
