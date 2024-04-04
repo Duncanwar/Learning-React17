@@ -1,6 +1,6 @@
 import './App.css';
 import Counter from './Counter';
-import Issues from './IssuesClass';
+import Issues from './Issues';
 
 function App() {
   return (
