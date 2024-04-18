@@ -1,5 +1,5 @@
 // Dependencies
-import {FC, useEffect} from 'react'
+import {FC, useEffect,memo} from 'react'
 
 import Task from './Task'
 
@@ -27,4 +27,4 @@ const List: FC<Props>= ({todoList})=>{
     )
 }
 
-export default List;
+export default memo(List);

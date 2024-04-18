@@ -20,7 +20,7 @@ function App() {
       id: Date.now(),
       task
     }
-
+    // publihing newTodo list
     setTodoList([...todoList, newTodo])
     setTask('')
   }
