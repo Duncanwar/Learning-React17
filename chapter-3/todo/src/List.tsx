@@ -1,30 +1,33 @@
 // Dependencies
-import {FC, useEffect,memo} from 'react'
+import { FC, useEffect, memo } from "react";
 
-import Task from './Task'
+import Task from "./Task";
 
-export type Todo ={
-    id:number
-    task:string
+export type Todo = {
+  id: number;
+  task: string;
+};
+
+interface Props {
+  todoList: Todo[];
+  handleDelete: any;
 }
 
-interface Props{
-    todoList: Todo[]
-}
+const List: FC<Props> = ({ todoList, handleDelete }) => {
+  useEffect(() => {});
 
-const List: FC<Props>= ({todoList})=>{
-    useEffect(() =>{
-        // This is executed every new render
-        console.log('rendering <List />')
-    })
-
-    return (
-        <ul>
-            {todoList.map((todo:Todo) =>(
-                <Task key={todo.id} id={todo.id} task={todo.task} />
-            ))}
-        </ul>
-    )
-}
+  return (
+    <ul>
+      {todoList.map((todo: Todo) => (
+        <Task
+          key={todo.id}
+          id={todo.id}
+          task={todo.task}
+          handleDelete={handleDelete}
+        />
+      ))}
+    </ul>
+  );
+};
 
 export default memo(List);
