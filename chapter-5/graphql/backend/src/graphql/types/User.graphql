@@ -14,6 +14,7 @@ getUsers:[User!]
 getUserData(at:String!):User!
 }
 
+
 type Mutation{
     createUser{input:CreateUserInput}:User!
     login(input:LoginInput):AuthPayLoad!
