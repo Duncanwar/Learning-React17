@@ -16,11 +16,11 @@ getUserData(at:String!):User!
 
 
 type Mutation{
-    createUser{input:CreateUserInput}:User!
-    login(input:LoginInput):AuthPayLoad!
+    createUser(input:CreateUserInput):User!
+    login(input:LoginInput):AuthPayload!
 }
 
-type CreateUserInput{
+input CreateUserInput{
     username:String!
     password:String!
     email:String!
@@ -28,11 +28,11 @@ type CreateUserInput{
     active:Boolean!
 }
 
-type LoginInput{
+input LoginInput{
 email:String!
 password:String!
 }
 
-type AuthPayLoad{
+type AuthPayload{
 token:String!
 }

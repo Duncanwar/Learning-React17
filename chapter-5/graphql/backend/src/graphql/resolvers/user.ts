@@ -1,4 +1,4 @@
-//Lib
+// Lib
 import { getUserData } from "../../lib/jwt";
 
 // Interfaces
@@ -22,9 +22,11 @@ export default {
       { at }: { at: string },
       { models }: { models: IModels }
     ): Promise<any> => {
-      // Get Current user
+      // Current connected user
       const connectedUser = await getUserData(at);
+
       if (connectedUser) {
+        // Validating if the user is still valid
         const user = await getUserBy(
           {
             id: connectedUser.id,
@@ -34,13 +36,18 @@ export default {
           },
           models
         );
+
         if (user) {
-          return connectedUser;
+          return {
+            ...connectedUser,
+          };
         }
       }
+
       return {
         id: "",
         username: "",
+        password: "",
         email: "",
         privilege: "",
         active: false,
