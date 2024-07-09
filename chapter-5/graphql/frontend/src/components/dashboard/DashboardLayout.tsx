@@ -1,7 +1,7 @@
 // Dependencies
 import { FC, ReactElement, useContext } from "react";
 // Contexts
-import { UserContext } from "../../../contexts/user";
+import { UserContext } from "../../contexts/user";
 // Components
 import Dashboard from "./Dashboard";
 

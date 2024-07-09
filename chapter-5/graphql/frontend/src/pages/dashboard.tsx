@@ -1,13 +1,13 @@
 // Components
-import DashboardLayout from '../compoents/dashboard/DashboardLayout';
+import DashboardLayout from "../components/dashboard/DashboardLayout";
 
 //Contexts
-import UserProvider from '../contexts/user';
+import UserProvider from "../contexts/user";
 
 const Page = () => (
-    <UserProvider>
-        <DashboardLayout />
-    </UserProvider>
-)
+  <UserProvider>
+    <DashboardLayout />
+  </UserProvider>
+);
 
 export default Page;

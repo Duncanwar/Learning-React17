@@ -1,6 +1,5 @@
 // Dependencies
-import { redirectTo } from "@contentpi/lib";
-import { FC, ReactElement, useContext, useEffect } from "react";
+import { FC, ReactElement, useContext } from "react";
 // Contexts
 import { UserContext } from "../../contexts/user";
 // Components
