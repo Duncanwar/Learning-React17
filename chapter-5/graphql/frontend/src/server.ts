@@ -6,7 +6,7 @@ import cors from "cors";
 import session from "express-session";
 
 //Middleware
-import { isConnected } from "./lib/middlewares/user";
+import { isConnected } from "./middlewares/user";
 
 //Config
 import config from "./config";
