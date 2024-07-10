@@ -2,7 +2,7 @@ interface IProps {
   connectedUser: any;
 }
 
-const Dashboard = ({ connectedUser }) => {
+const Dashboard = ({ connectedUser }) => (
   <div className="dashboard">
     <h1>Welcome, {connectedUser.username}!</h1>
     <ul>
@@ -10,6 +10,6 @@ const Dashboard = ({ connectedUser }) => {
         <a href="/logout">Logout</a>
       </li>
     </ul>
-  </div>;
-};
+  </div>
+);
 export default Dashboard;

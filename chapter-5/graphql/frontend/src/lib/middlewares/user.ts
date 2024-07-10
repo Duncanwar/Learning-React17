@@ -2,7 +2,7 @@
 import { Request, Response, NextFunction } from "express";
 
 //Lib
-import { getUserData } from "../lib/jwt";
+import { getUserData } from "../jwt";
 
 export const isConnected =
   (isLogged = true, privileges = ["user"], redirectTo = "/") =>

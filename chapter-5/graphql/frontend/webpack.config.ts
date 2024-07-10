@@ -1,12 +1,11 @@
-// Dependencies
+// webpack.config.ts
 import path from "path";
 import webpack, { Configuration } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
-// Environment
 const isProduction = process.env.NODE_ENV === "production";
 
-const webpackConfig: Configuration = {
+const config: Configuration = {
   devtool: !isProduction ? "source-map" : false,
   target: "web",
   mode: isProduction ? "production" : "development",
@@ -19,8 +18,7 @@ const webpackConfig: Configuration = {
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json"],
     fallback: {
-      // This is to fix the polifylls errors
-      buffer: require.resolve("buffer"),
+      buffer: require.resolve("buffer/"),
       crypto: require.resolve("crypto-browserify"),
       stream: require.resolve("stream-browserify"),
     },
@@ -41,7 +39,6 @@ const webpackConfig: Configuration = {
   },
   optimization: {
     splitChunks: {
-      // This will split our bundle into vendor.js and main.js
       cacheGroups: {
         default: false,
         commons: {
@@ -57,9 +54,13 @@ const webpackConfig: Configuration = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "./index.html",
-      publicPath: !isProduction ? "http://localhost:8080/" : "", // For dev we will read the bundle from localhost:8080  (webpack-dev-server)
+      publicPath: !isProduction ? "http://localhost:8080/" : "/", // For dev we will read the bundle from localhost:8080 (webpack-dev-server)
+    }),
+    new webpack.ProvidePlugin({
+      process: "process/browser",
+      Buffer: ["buffer", "Buffer"],
     }),
   ],
 };
 
-export default webpackConfig;
+export default config;

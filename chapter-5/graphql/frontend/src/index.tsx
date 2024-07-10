@@ -1,23 +1,24 @@
 // Dependencies
-import { render } from "react-dom";
+import ReactDOM from "react-dom";
 
-//Apollo
+// Apollo
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
-//Components
+// Components
 import AppRoutes from "./AppRoutes";
 
-//config
+// Config
 import config from "./config";
 
-//Apollo Client configuration
+// Apollo Client configuration
 const client = new ApolloClient({
   uri: config.apiUrl,
   cache: new InMemoryCache(),
 });
 
-render(
+ReactDOM.render(
   <ApolloProvider client={client}>
     <AppRoutes />
-  </ApolloProvider>, document.querySelector("#root"));
+  </ApolloProvider>,
+  document.querySelector("#root")
 );
